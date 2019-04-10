@@ -4,6 +4,7 @@ package sample;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 
@@ -14,20 +15,25 @@ public class Controller {
     public TextField passwordFld;
     public TextField emailFld;
     public TextField usernameFld;
+    public ListView korisniciList;
 
-    private KorisniciModel model;
-
+    private KorisniciModel model = new KorisniciModel();
+    /*
     public  Controller (KorisniciModel m) {
         this.model = m;
-    }
+    }*/
 
     @FXML
     public void initialize() {
+        model.napuni();
+        model.setTrenutniKorisnik(new Korisnik("Bakir", "Karovic", "bkarovic1@.etf.unsa.ba","bkarovic1", "nedam"));
+/*
         imeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
         prezimeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
         emailFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
         usernameFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
         passwordFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().passwordProperty());
+        korisniciList.setItems(model.getKorisnici());*/
     }
 
     public void computerEndProgram(ActionEvent actionEvent) {

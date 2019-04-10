@@ -27,7 +27,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" />
+      <ListView fx:id="korisniciList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" />
       <Label text="Ime:" GridPane.rowIndex="1" />
       <Label text="Prezime:" GridPane.rowIndex="2" />
       <Label text="E-mail:" GridPane.rowIndex="3" />
