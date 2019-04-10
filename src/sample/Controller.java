@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 
@@ -32,7 +33,7 @@ public class Controller {
         model.setTrenutniKorisnik(model.getKorisnici().get(0));
         setTextPropetryBind();
         korisniciList.setItems(model.getKorisnici());
-        System.out.println("initialize");
+        //System.out.println("initialize");
 
         // TODO: postavit default selected item na prvi da ne moram klikat uvjek
         // TODO: promjenit fokus na novi korisnik kad kliknem Dodaj u list view
@@ -43,10 +44,10 @@ public class Controller {
             public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnikOld, Korisnik korisnikNew) {
                 if (korisnikOld != null) {
                     setTextPropetryUnBind();
-                    System.out.println("old null");
+                    //System.out.println("old null");
                 }
                 if (korisnikNew == null) {
-                    System.out.println("new null");
+                    //System.out.println("new null");
                     imeFld.setText("");
                     prezimeFld.setText("");
                     emailFld.setText("");
@@ -55,7 +56,7 @@ public class Controller {
                 }
                 else {
                     //setTextPropetryBind();
-                    System.out.println("else");
+                    //System.out.println("else");
                 }
                 korisniciList.refresh();
             }
@@ -97,11 +98,23 @@ public class Controller {
 
     @FXML
     private void addUser(ActionEvent mouseEvent) {
-        model.addUser();
+        updateSelectedItem();
+    }
+
+    @FXML
+    private void handle(KeyEvent event) {
+        System.out.println(event.getCode());
+
+        if (event.getCode().isArrowKey()) {
+            updateSelectedItem();
+        }
+    }
+
+
+    private void updateSelectedItem() {
+        Korisnik k = (Korisnik) korisniciList.getSelectionModel().getSelectedItem();
         setTextPropetryUnBind();
-        model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size() - 1));
-        //korisniciList.scrollTo(2);   //neradi iz nekog raloga
-        //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
+        model.setTrenutniKorisnik(k);
         setTextPropetryBind();
         korisniciList.refresh();
     }

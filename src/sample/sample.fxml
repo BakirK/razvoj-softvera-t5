@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="355.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="304.0" prefWidth="355.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -28,7 +28,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <ListView fx:id="korisniciList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" onMouseClicked="#setCurrentUser">
+      <ListView fx:id="korisniciList" onMouseClicked="#setCurrentUser" onKeyPressed="#handle" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647">
          <GridPane.margin>
             <Insets top="10.0" />
          </GridPane.margin></ListView>
@@ -37,16 +37,19 @@
       <Label text="E-mail:" GridPane.rowIndex="3" />
       <Label text="Korisničko ime:" GridPane.rowIndex="4" />
       <Label text="Lozinka:" GridPane.rowIndex="5" />
-      <TextField fx:id="prezimeFld" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <TextField fx:id="imeFld" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <TextField fx:id="prezimeFld" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <TextField fx:id="emailFld" GridPane.columnIndex="3" GridPane.rowIndex="3" />
       <TextField fx:id="usernameFld" GridPane.columnIndex="3" GridPane.rowIndex="4" />
       <TextField fx:id="passwordFld" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <buttons>
-          <Button mnemonicParsing="false" text="Dodaj" onAction="#addUser"/>
+          <Button mnemonicParsing="false" onAction="#addUser" text="Dodaj" />
             <Button mnemonicParsing="false" onAction="#computerEndProgram" text="Kraj" />
         </buttons>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
       </ButtonBar>
    </children>
 </GridPane>
