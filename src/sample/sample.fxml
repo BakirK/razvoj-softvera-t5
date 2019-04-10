@@ -33,11 +33,11 @@
       <Label text="E-mail:" GridPane.rowIndex="3" />
       <Label text="Korisničko ime:" GridPane.rowIndex="4" />
       <Label text="Lozinka:" GridPane.rowIndex="5" />
-      <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <TextField GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <TextField fx:id="prezimeFld" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <TextField fx:id="imeFld" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <TextField fx:id="emailFld" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <TextField fx:id="usernameFld" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      <TextField fx:id="passwordFld" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <buttons>
           <Button mnemonicParsing="false" text="Dodaj" />
