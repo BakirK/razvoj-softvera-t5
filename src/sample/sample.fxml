@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="304.0" prefWidth="355.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handle" prefHeight="400.0" prefWidth="350.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -28,7 +28,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <ListView fx:id="korisniciList" onMouseClicked="#setCurrentUser" onKeyPressed="#handle" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647">
+      <ListView fx:id="korisniciList" onKeyPressed="#handle" onMouseClicked="#setCurrentUser" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647">
          <GridPane.margin>
             <Insets top="10.0" />
          </GridPane.margin></ListView>

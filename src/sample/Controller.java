@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -35,7 +36,6 @@ public class Controller {
         korisniciList.setItems(model.getKorisnici());
         //System.out.println("initialize");
 
-        // TODO: postavit default selected item na prvi da ne moram klikat uvjek
         // TODO: promjenit fokus na novi korisnik kad kliknem Dodaj u list view
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
@@ -56,6 +56,7 @@ public class Controller {
                 else {
                     //setTextPropetryBind();
                     //System.out.println("else");
+                    updateSelectedUser();
                 }
                 korisniciList.refresh();
             }
@@ -81,14 +82,16 @@ public class Controller {
     }
 
 
-
+    //not a Star Trek reference at all
     public void computerEndProgram(ActionEvent actionEvent) {
         Platform.exit();
     }
 
+
+    //radi isto kao i else petlja u listeneru
     @FXML
     private void setCurrentUser(MouseEvent mouseEvent) {
-        updateSelectedUser();
+        //updateSelectedUser();
     }
 
     @FXML
@@ -104,13 +107,14 @@ public class Controller {
 
     @FXML
     private void handle(KeyEvent event) {
-        System.out.println(event.getCode());
-
+        //System.out.println(event.getCode());
         if (event.getCode().isArrowKey()) {
             updateSelectedUser();
         }
+        else if (event.getCode() == KeyCode.ESCAPE) {
+            Platform.exit();
+        }
     }
-
 
     private void updateSelectedUser() {
         Korisnik k = (Korisnik) korisniciList.getSelectionModel().getSelectedItem();
@@ -119,6 +123,4 @@ public class Controller {
         setTextPropetryBind();
         korisniciList.refresh();
     }
-
-
 }
