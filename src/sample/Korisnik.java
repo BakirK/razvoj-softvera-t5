@@ -93,7 +93,7 @@ public class Korisnik {
 
     @Override
     public String toString() {
-        String s = this.ime + " " + this.prezime;
+        String s = ime.get() + " " + prezime.get();
         return s;
     }
 }

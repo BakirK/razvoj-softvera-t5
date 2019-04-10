@@ -44,6 +44,11 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnik, Korisnik t1) {
                 model.setTrenutniKorisnik(t1);
+                imeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
+                prezimeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
+                emailFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
+                usernameFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
+                passwordFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().passwordProperty());
             }
         });
 
