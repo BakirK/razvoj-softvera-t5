@@ -32,13 +32,17 @@ public class Controller {
         model.setTrenutniKorisnik(new Korisnik("Bakir", "Karovic", "bkarovic1@.etf.unsa.ba","bkarovic1", "nedam"));
         setTextPropetryBind();
         korisniciList.setItems(model.getKorisnici());
-
+        System.out.println("initialize");
 
 
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
             @Override
             public void changed(ObservableValue<? extends Korisnik> observableValue, Korisnik korisnikOld, Korisnik korisnikNew) {
+                if (korisnikOld != null) {
+                    setTextPropetryUnBind();
+                    System.out.println("old null");
+                }
                 if (korisnikNew == null) {
                     System.out.println("new null");
                     imeFld.setText("");
@@ -48,12 +52,10 @@ public class Controller {
                     passwordFld.setText("");
                 }
                 else {
-                    setTextPropetryBind();
+                    //setTextPropetryBind();
+                    System.out.println("else");
                 }
-                if (korisnikOld != null) {
-                    setTextPropetryUnBind();
-                    System.out.println("old null");
-                }
+
             }
         });
 
@@ -85,13 +87,17 @@ public class Controller {
     @FXML
     private void setCurrentUser(MouseEvent mouseEvent) {
         Korisnik k = (Korisnik) korisniciList.getSelectionModel().getSelectedItem();
+        setTextPropetryUnBind();
         model.setTrenutniKorisnik(k);
+        setTextPropetryBind();
     }
 
     @FXML
     private void addUser(ActionEvent mouseEvent) {
         model.addUser();
+        setTextPropetryUnBind();
         model.setTrenutniKorisnik(new Korisnik());
+        //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
         setTextPropetryBind();
     }
 }
