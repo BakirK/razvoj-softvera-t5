@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 public class Controller {
 
-    private KorisniciModel model = new KorisniciModel();
+    private KorisniciModel model;
     public  Controller (KorisniciModel m) {
         model = m;
     }
@@ -89,8 +89,9 @@ public class Controller {
     }
 
     @FXML
-    private void addUser(MouseEvent mouseEvent) {
-        Korisnik k = new Korisnik();
-
+    private void addUser(ActionEvent mouseEvent) {
+        model.addUser();
+        model.setTrenutniKorisnik(new Korisnik());
+        setTextPropetryBind();
     }
 }

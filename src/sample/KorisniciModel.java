@@ -37,4 +37,8 @@ public class KorisniciModel {
         korisnici.add(new Korisnik("Faris", "Baždar", "fbazdar2@.etf.unsa.ba","fbazdar2", "letMeIn"));
     }
 
+    public void addUser() {
+        korisnici.add(new Korisnik());
+    }
+
 }

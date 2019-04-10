@@ -3,14 +3,13 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Korisnik {
-    private SimpleStringProperty ime = new SimpleStringProperty("");
+    private SimpleStringProperty ime = new SimpleStringProperty("noviKorisnik");
     private SimpleStringProperty prezime = new SimpleStringProperty("");
     private SimpleStringProperty email = new SimpleStringProperty("");
     private SimpleStringProperty username = new SimpleStringProperty("");
     private SimpleStringProperty password = new SimpleStringProperty("");
 
     public Korisnik() {
-
     }
 
     public Korisnik(String imeIn, String  prezimeIn, String  emailIn, String  usernameIn, String  passwordIn) {
