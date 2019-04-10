@@ -7,7 +7,19 @@ public class Korisnik {
     private SimpleStringProperty prezime;
     private SimpleStringProperty email;
     private SimpleStringProperty username;
-    private  SimpleStringProperty password;
+    private SimpleStringProperty password;
+
+    public Korisnik() {
+
+    }
+
+    public Korisnik(String imeIn, String  prezimeIn, String  emailIn, String  usernameIn, String  passwordIn) {
+        this.ime = new SimpleStringProperty(imeIn);
+        this.prezime = new SimpleStringProperty(prezimeIn);
+        this.email = new SimpleStringProperty(emailIn);
+        this.username = new SimpleStringProperty(usernameIn);
+        this.password = new SimpleStringProperty(passwordIn);
+    }
 
     //ime
     public String getIme() {
