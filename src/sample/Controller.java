@@ -29,12 +29,15 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        model.setTrenutniKorisnik(new Korisnik("Bakir", "Karovic", "bkarovic1@.etf.unsa.ba","bkarovic1", "nedam"));
+        model.setTrenutniKorisnik(model.getKorisnici().get(0));
         setTextPropetryBind();
         korisniciList.setItems(model.getKorisnici());
         System.out.println("initialize");
 
-
+        // TODO: postavit default selected item na prvi da ne moram klikat uvjek
+        // TODO: uradit refresh liste prilikom promjene na drugi elemenat
+        // TODO: ako odma kliknem na dodaj, bude penal i padne sve
+        // TODO: promjena elemenata strelicama treba pozvati metodu setCurrentUser
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
             @Override
@@ -97,6 +100,7 @@ public class Controller {
         model.addUser();
         setTextPropetryUnBind();
         model.setTrenutniKorisnik(new Korisnik());
+        //korisniciList.scrollTo(2);   //neradi iz nekog raloga
         //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
         setTextPropetryBind();
     }
