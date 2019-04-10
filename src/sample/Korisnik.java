@@ -90,4 +90,10 @@ public class Korisnik {
     public void setPassword(String password) {
         this.password.set(password);
     }
+
+    @Override
+    public String toString() {
+        String s = this.ime + " " + this.prezime;
+        return s;
+    }
 }
