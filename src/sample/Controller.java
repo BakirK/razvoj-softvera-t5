@@ -35,8 +35,7 @@ public class Controller {
         System.out.println("initialize");
 
         // TODO: postavit default selected item na prvi da ne moram klikat uvjek
-        // TODO: uradit refresh liste prilikom promjene na drugi elemenat
-        // TODO: ako odma kliknem na dodaj, bude penal i padne sve
+        // TODO: promjenit fokus na novi korisnik kad kliknem Dodaj u list view
         // TODO: promjena elemenata strelicama treba pozvati metodu setCurrentUser
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
@@ -58,7 +57,7 @@ public class Controller {
                     //setTextPropetryBind();
                     System.out.println("else");
                 }
-
+                korisniciList.refresh();
             }
         });
 
@@ -93,15 +92,17 @@ public class Controller {
         setTextPropetryUnBind();
         model.setTrenutniKorisnik(k);
         setTextPropetryBind();
+        korisniciList.refresh();
     }
 
     @FXML
     private void addUser(ActionEvent mouseEvent) {
         model.addUser();
         setTextPropetryUnBind();
-        model.setTrenutniKorisnik(new Korisnik());
+        model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size() - 1));
         //korisniciList.scrollTo(2);   //neradi iz nekog raloga
         //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
         setTextPropetryBind();
+        korisniciList.refresh();
     }
 }
