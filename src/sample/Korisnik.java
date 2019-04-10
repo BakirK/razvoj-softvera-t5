@@ -9,6 +9,7 @@ public class Korisnik {
     private SimpleStringProperty username;
     private  SimpleStringProperty password;
 
+    //ime
     public String getIme() {
         return ime.get();
     }
@@ -21,6 +22,8 @@ public class Korisnik {
         this.ime.set(ime);
     }
 
+
+    //prezime
     public String getPrezime() {
         return prezime.get();
     }
@@ -33,6 +36,8 @@ public class Korisnik {
         this.prezime.set(prezime);
     }
 
+
+    //email
     public String getEmail() {
         return email.get();
     }
@@ -45,6 +50,9 @@ public class Korisnik {
         this.email.set(email);
     }
 
+
+
+    //username
     public String getUsername() {
         return username.get();
     }
@@ -57,6 +65,8 @@ public class Korisnik {
         this.username.set(username);
     }
 
+
+    //password
     public String getPassword() {
         return password.get();
     }
