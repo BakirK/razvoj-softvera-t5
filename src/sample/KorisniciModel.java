@@ -31,4 +31,10 @@ public class KorisniciModel {
         this.trenutniKorisnik.set(trenutniKorisnik);
     }
 
+    public void napuni() {
+        korisnici.add(new Korisnik("Bakir", "Karovic", "bkarovic1@.etf.unsa.ba","bkarovic1", "nedam"));
+        korisnici.add(new Korisnik("Goran", "Jović", "gjovic1@.etf.unsa.ba","gjovic1", "sifra"));
+        korisnici.add(new Korisnik("Faris", "Baždar", "fbazdar2@.etf.unsa.ba","fbazdar2", "letMeIn"));
+    }
+
 }
