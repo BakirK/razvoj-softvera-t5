@@ -22,6 +22,11 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+
+    private void handle(KeyEvent event) {
+        System.out.println(event.getCode());
+
+    }
     public static void main(String[] args) {
         launch(args);
     }

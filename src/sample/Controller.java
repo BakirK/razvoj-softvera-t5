@@ -37,7 +37,6 @@ public class Controller {
 
         // TODO: postavit default selected item na prvi da ne moram klikat uvjek
         // TODO: promjenit fokus na novi korisnik kad kliknem Dodaj u list view
-        // TODO: promjena elemenata strelicama treba pozvati metodu setCurrentUser
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
             @Override
@@ -89,16 +88,18 @@ public class Controller {
 
     @FXML
     private void setCurrentUser(MouseEvent mouseEvent) {
-        Korisnik k = (Korisnik) korisniciList.getSelectionModel().getSelectedItem();
-        setTextPropetryUnBind();
-        model.setTrenutniKorisnik(k);
-        setTextPropetryBind();
-        korisniciList.refresh();
+        updateSelectedUser();
     }
 
     @FXML
     private void addUser(ActionEvent mouseEvent) {
-        updateSelectedItem();
+        model.addUser();
+        setTextPropetryUnBind();
+        model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size() - 1));
+        //korisniciList.scrollTo(2);   //neradi iz nekog raloga
+        //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
+        setTextPropetryBind();
+        korisniciList.refresh();
     }
 
     @FXML
@@ -106,16 +107,18 @@ public class Controller {
         System.out.println(event.getCode());
 
         if (event.getCode().isArrowKey()) {
-            updateSelectedItem();
+            updateSelectedUser();
         }
     }
 
 
-    private void updateSelectedItem() {
+    private void updateSelectedUser() {
         Korisnik k = (Korisnik) korisniciList.getSelectionModel().getSelectedItem();
         setTextPropetryUnBind();
         model.setTrenutniKorisnik(k);
         setTextPropetryBind();
         korisniciList.refresh();
     }
+
+
 }
