@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="355.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="355.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -27,7 +28,10 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <ListView fx:id="korisniciList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" />
+      <ListView fx:id="korisniciList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" onMouseClicked="#setCurrentUser">
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin></ListView>
       <Label text="Ime:" GridPane.rowIndex="1" />
       <Label text="Prezime:" GridPane.rowIndex="2" />
       <Label text="E-mail:" GridPane.rowIndex="3" />
@@ -40,7 +44,7 @@
       <TextField fx:id="passwordFld" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <buttons>
-          <Button mnemonicParsing="false" text="Dodaj" />
+          <Button mnemonicParsing="false" text="Dodaj" onAction="#addUser"/>
             <Button mnemonicParsing="false" onAction="#computerEndProgram" text="Kraj" />
         </buttons>
       </ButtonBar>
