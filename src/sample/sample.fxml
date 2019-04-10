@@ -41,7 +41,7 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <buttons>
           <Button mnemonicParsing="false" text="Dodaj" />
-            <Button mnemonicParsing="false" text="Kraj" />
+            <Button mnemonicParsing="false" onAction="#computerEndProgram" text="Kraj" />
         </buttons>
       </ButtonBar>
    </children>
