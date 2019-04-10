@@ -15,9 +15,19 @@ public class Controller {
     public TextField emailFld;
     public TextField usernameFld;
 
+    private KorisniciModel model;
+
+    public  Controller (KorisniciModel m) {
+        this.model = m;
+    }
+
     @FXML
     public void initialize() {
-
+        imeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
+        prezimeFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
+        emailFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
+        usernameFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().emailProperty());
+        passwordFld.textProperty().bindBidirectional(model.getTrenutniKorisnik().passwordProperty());
     }
 
     public void computerEndProgram(ActionEvent actionEvent) {
