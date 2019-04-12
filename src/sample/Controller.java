@@ -31,12 +31,13 @@ public class Controller {
 
     @FXML
     public void initialize() {
+        korisniciList.requestFocus();
         model.setTrenutniKorisnik(model.getKorisnici().get(0));
         setTextPropetryBind();
         korisniciList.setItems(model.getKorisnici());
+        korisniciList.getFocusModel().focus(0);
         //System.out.println("initialize");
 
-        // TODO: promjenit fokus na novi korisnik kad kliknem Dodaj u list view
         //listener
         korisniciList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Korisnik>() {
             @Override
@@ -88,10 +89,8 @@ public class Controller {
     }
 
 
-    //radi isto kao i else petlja u listeneru
     @FXML
     private void setCurrentUser(MouseEvent mouseEvent) {
-        //updateSelectedUser();
     }
 
     @FXML
@@ -99,10 +98,12 @@ public class Controller {
         model.addUser();
         setTextPropetryUnBind();
         model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size() - 1));
-        //korisniciList.scrollTo(2);   //neradi iz nekog raloga
-        //korisniciList.getFocusModel().focus(korisniciList.getFocusModel().focusNext());
         setTextPropetryBind();
         korisniciList.refresh();
+        korisniciList.requestFocus();
+        //korisniciList.getFocusModel().focus(model.getKorisnici().size() - 1);
+        korisniciList.getSelectionModel().selectLast();
+
     }
 
     @FXML
